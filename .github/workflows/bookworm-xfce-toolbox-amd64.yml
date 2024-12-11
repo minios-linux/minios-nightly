@@ -8,11 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Clone minios-live Repository
-      uses: actions/checkout@v3
-      with:
-        repository: minios-linux/minios-live
-        ref: master
-        fetch-depth: 1
+      run: |
+        git clone --depth 1 https://github.com/minios-linux/minios-live.git
+        cd minios-live
 
     - name: Install dependencies
       run: |
