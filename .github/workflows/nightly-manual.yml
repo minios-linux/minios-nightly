@@ -1,0 +1,78 @@
+name: Manual Trigger Nightly Workflows
+
+on:
+  workflow_dispatch:
+
+jobs:
+  trigger_workflows:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger bookworm-xfce-standard-amd64
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -X POST \
+          -H "Authorization: token $GITHUB_TOKEN" \
+          -H "Accept: application/vnd.github+json" \
+          https://api.github.com/repos/minios-linux/minios-nightly/actions/workflows/bookworm-xfce-standard-amd64.yml/dispatches \
+          -d '{"ref":"main"}'
+
+      - name: Trigger bookworm-xfce-standard-i386
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -X POST \
+          -H "Authorization: token $GITHUB_TOKEN" \
+          -H "Accept: application/vnd.github+json" \
+          https://api.github.com/repos/minios-linux/minios-nightly/actions/workflows/bookworm-xfce-standard-i386.yml/dispatches \
+          -d '{"ref":"main"}'
+
+      - name: Trigger bookworm-xfce-toolbox-amd64
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -X POST \
+          -H "Authorization: token $GITHUB_TOKEN" \
+          -H "Accept: application/vnd.github+json" \
+          https://api.github.com/repos/minios-linux/minios-nightly/actions/workflows/bookworm-xfce-toolbox-amd64.yml/dispatches \
+          -d '{"ref":"main"}'
+
+      - name: Trigger bookworm-flux-minimum-amd64
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -X POST \
+          -H "Authorization: token $GITHUB_TOKEN" \
+          -H "Accept: application/vnd.github+json" \
+          https://api.github.com/repos/minios-linux/minios-nightly/actions/workflows/bookworm-flux-minimum-amd64.yml/dispatches \
+          -d '{"ref":"main"}'
+
+      - name: Trigger bookworm-flux-minimum-i386
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -X POST \
+          -H "Authorization: token $GITHUB_TOKEN" \
+          -H "Accept: application/vnd.github+json" \
+          https://api.github.com/repos/minios-linux/minios-nightly/actions/workflows/bookworm-flux-minimum-i386.yml/dispatches \
+          -d '{"ref":"main"}'
+
+      - name: Trigger buster-xfce-standard-amd64
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -X POST \
+          -H "Authorization: token $GITHUB_TOKEN" \
+          -H "Accept: application/vnd.github+json" \
+          https://api.github.com/repos/minios-linux/minios-nightly/actions/workflows/buster-xfce-standard-amd64.yml/dispatches \
+          -d '{"ref":"main"}'
+
+      - name: Trigger buster-xfce-standard-i386
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -X POST \
+          -H "Authorization: token $GITHUB_TOKEN" \
+          -H "Accept: application/vnd.github+json" \
+          https://api.github.com/repos/minios-linux/minios-nightly/actions/workflows/buster-xfce-standard-i386.yml/dispatches \
+          -d '{"ref":"main"}'
