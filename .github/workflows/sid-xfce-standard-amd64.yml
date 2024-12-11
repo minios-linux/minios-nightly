@@ -1,4 +1,4 @@
-name: Nightly - bookworm-xfce-standard-amd64
+name: Nightly - sid-xfce-standard-amd64
 
 on:
   workflow_dispatch:
@@ -24,16 +24,16 @@ jobs:
       run: |
         cd minios-live
         echo "Starting build for Debian 12 XFCE Standard amd64..."
-        sudo ./minios-cmd -d bookworm -a amd64 -de xfce -pv standard -dkms -kl
-        sudo mkdir -p build/output/bookworm-xfce-standard-amd64
-        sudo mv build/iso/*.iso build/output/bookworm-xfce-standard-amd64/
+        sudo ./minios-cmd -d sid -a amd64 -de xfce -pv standard -dkms -kl
+        sudo mkdir -p build/output/sid-xfce-standard-amd64
+        sudo mv build/iso/*.iso build/output/sid-xfce-standard-amd64/
         echo "Build completed for Debian 12 XFCE Standard amd64."
 
     - name: Archive build output - Debian 12 XFCE Standard amd64
       uses: actions/upload-artifact@v3
       with:
-        name: minios-bookworm-xfce-standard-amd64
-        path: minios-live/build/output/bookworm-xfce-standard-amd64
+        name: minios-sid-xfce-standard-amd64
+        path: minios-live/build/output/sid-xfce-standard-amd64
 
   release:
     needs: build
