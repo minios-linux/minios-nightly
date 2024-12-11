@@ -1,4 +1,4 @@
-name: Nightly - sid-xfce-standard-amd64
+name: Nightly - sid-xfce-standard-i386
 
 on:
   workflow_dispatch:
@@ -20,20 +20,20 @@ jobs:
           grub-pc-bin grub-efi-amd64-bin dosfstools mtools xz-utils zstd \
           curl rsync
 
-    - name: Run build - Debian Sid XFCE Standard amd64
+    - name: Run build - Debian Sid XFCE Standard i386
       run: |
         cd minios-live
-        echo "Starting build for Debian Sid XFCE Standard amd64..."
-        sudo ./minios-cmd -d sid -a amd64 -de xfce -pv standard -aufs -dkms -kl
-        sudo mkdir -p build/output/sid-xfce-standard-amd64
-        sudo mv build/iso/*.iso build/output/sid-xfce-standard-amd64/
-        echo "Build completed for Debian Sid XFCE Standard amd64."
+        echo "Starting build for Debian Sid XFCE Standard i386..."
+        sudo ./minios-cmd -d sid -a i386 -de xfce -pv standard -kl
+        sudo mkdir -p build/output/sid-xfce-standard-i386
+        sudo mv build/iso/*.iso build/output/sid-xfce-standard-i386/
+        echo "Build completed for Debian Sid XFCE Standard i386."
 
-    - name: Archive build output - Debian Sid XFCE Standard amd64
+    - name: Archive build output - Debian Sid XFCE Standard i386
       uses: actions/upload-artifact@v3
       with:
-        name: minios-sid-xfce-standard-amd64
-        path: minios-live/build/output/sid-xfce-standard-amd64
+        name: minios-sid-xfce-standard-i386
+        path: minios-live/build/output/sid-xfce-standard-i386
 
   release:
     needs: build

@@ -9,6 +9,8 @@
 ![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/bookworm-flux-minimum-i386.yml/badge.svg)<br>
 ![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/buster-xfce-standard-amd64.yml/badge.svg)<br>
 ![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/buster-xfce-standard-i386.yml/badge.svg)
+![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/sid-xfce-standard-amd64.yml/badge.svg)<br>
+![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/sid-xfce-standard-i386.yml/badge.svg)
 
 Welcome to the MiniOS Live Nightly Builds repository! Here, you can find the latest automated builds of MiniOS Live, created every night at **00:00 UTC**. These builds are designed to provide you with the freshest updates and features of MiniOS.
 
