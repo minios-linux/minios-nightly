@@ -24,7 +24,7 @@ jobs:
       run: |
         cd minios-live
         echo "Starting build for Debian 10 XFCE Standard i386..."
-        sudo ./minios-cmd -d buster -a i386 -de xfce -pv standard -aufs -kl
+        sudo ./minios-cmd -d buster -a i386 -de xfce -pv standard -aufs -dkms -kl
         sudo mkdir -p build/output/buster-xfce-standard-i386
         sudo mv build/iso/*.iso build/output/buster-xfce-standard-i386/
         echo "Build completed for Debian 10 XFCE Standard i386."

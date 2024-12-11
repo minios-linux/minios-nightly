@@ -17,7 +17,7 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y \
           debootstrap xorriso genisoimage binutils squashfs-tools \
-          grub-pc-bin grub-efi-i386-bin dosfstools mtools xz-utils zstd \
+          grub-pc-bin grub-efi-amd64-bin dosfstools mtools xz-utils zstd \
           curl rsync
 
     - name: Run build - Debian 12 Flux Minimum i386
