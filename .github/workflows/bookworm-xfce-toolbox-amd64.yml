@@ -1,4 +1,4 @@
-name: Nightly - bookworm-xfce-standard-amd64
+name: Nightly - bookworm-xfce-toolbox-amd64
 
 on:
   workflow_dispatch:
@@ -8,9 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Clone minios-live Repository
-      run: |
-        git clone --depth 1 https://github.com/minios-linux/minios-live.git
-        cd minios-live
+      uses: actions/checkout@v3
+      with:
+        repository: minios-linux/minios-live
+        ref: master
+        fetch-depth: 1
 
     - name: Install dependencies
       run: |
@@ -20,20 +22,20 @@ jobs:
           grub-pc-bin grub-efi-amd64-bin dosfstools mtools xz-utils zstd \
           curl rsync
 
-    - name: Run build - Debian 12 XFCE Standard amd64
+    - name: Run build - Debian 12 XFCE Toolbox amd64
       run: |
         cd minios-live
-        echo "Starting build for Debian 12 XFCE Standard amd64..."
-        sudo ./minios-cmd -d bookworm -a amd64 -de xfce -pv standard -aufs -dkms -kl
-        sudo mkdir -p build/output/bookworm-xfce-standard-amd64
-        sudo mv build/iso/*.iso build/output/bookworm-xfce-standard-amd64/
-        echo "Build completed for Debian 12 XFCE Standard amd64."
+        echo "Starting build for Debian 12 XFCE Toolbox amd64..."
+        ./minios-cmd -d bookworm -a amd64 -de xfce -pv toolbox -aufs -dkms -kl
+        sudo mkdir -p build/output/bookworm-xfce-toolbox-amd64
+        sudo mv build/iso/*.iso build/output/bookworm-xfce-toolbox-amd64/
+        echo "Build completed for Debian 12 XFCE Toolbox amd64."
 
-    - name: Archive build output - Debian 12 XFCE Standard amd64
+    - name: Archive build output - Debian 12 XFCE Toolbox amd64
       uses: actions/upload-artifact@v3
       with:
-        name: minios-bookworm-xfce-standard-amd64
-        path: minios-live/build/output/bookworm-xfce-standard-amd64
+        name: minios-bookworm-xfce-toolbox-amd64
+        path: minios-live/build/output/bookworm-xfce-toolbox-amd64
 
   release:
     needs: build
