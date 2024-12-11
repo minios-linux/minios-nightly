@@ -1,6 +1,6 @@
 # MiniOS Live Nightly Builds
 
-![Downloads](https://img.shields.io/github/downloads/minios-linux/minios-nightly/total)
+![Downloads](https://img.shields.io/github/downloads/minios-linux/minios-nightly/total?style=for-the-badge&logoSize=30&label=%20TOTAL%20DOWNLOADS&labelColor=white&color=orange)
 
 ![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/bookworm-xfce-standard-amd64.yml/badge.svg)<br>
 ![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/bookworm-xfce-standard-i386.yml/badge.svg)<br>
