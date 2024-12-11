@@ -8,7 +8,7 @@
 ![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/bookworm-flux-minimum-amd64.yml/badge.svg)<br>
 ![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/bookworm-flux-minimum-i386.yml/badge.svg)<br>
 ![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/buster-xfce-standard-amd64.yml/badge.svg)<br>
-![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/buster-xfce-standard-i386.yml/badge.svg)
+![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/buster-xfce-standard-i386.yml/badge.svg)<br>
 ![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/sid-xfce-standard-amd64.yml/badge.svg)<br>
 ![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/sid-xfce-standard-i386.yml/badge.svg)
 
