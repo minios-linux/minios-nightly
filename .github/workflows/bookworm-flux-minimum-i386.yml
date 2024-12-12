@@ -68,7 +68,16 @@ jobs:
         repo=${{ github.repository }}
         today=$(date +%Y-%m-%d)
         latest_date=$(gh release view "latest" --json createdAt --repo "$repo" --jq '.createdAt' 2>/dev/null | cut -d'T' -f1 || echo "")
-        if [ "$latest_date" != "$today" ]; then
+
+        if [ "$latest_date" = "$today" ]; then
+          echo "The latest release already exists and was created today. Skipping..."
+        else
+          if [ -n "$latest_date" ]; then
+            echo "The latest release exists but was created on a different day. Deleting..."
+            gh release delete "latest" --yes --repo "$repo"
+          fi
+
+          echo "Creating a new latest release..."
           gh release create "latest" \
             --title "Latest Build" \
             --notes "This is the latest release." \
