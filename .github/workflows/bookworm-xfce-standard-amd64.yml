@@ -66,8 +66,11 @@ jobs:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         repo=${{ github.repository }}
-        today=$(date +%Y-%m-%d)
+        today=$(date -u +%Y-%m-%d)
         latest_date=$(gh release view "latest" --json createdAt --repo "$repo" --jq '.createdAt' 2>/dev/null | cut -d'T' -f1 || echo "")
+
+        echo "Today's date (UTC): $today"
+        echo "Latest release date (UTC): $latest_date"
 
         if [ "$latest_date" = "$today" ]; then
           echo "The latest release already exists and was created today. Skipping..."
