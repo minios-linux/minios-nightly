@@ -1,35 +1,45 @@
 # MiniOS Live Nightly Builds
 
-![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/bookworm-xfce-standard-amd64.yml/badge.svg)<br>
-![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/bookworm-xfce-standard-i386.yml/badge.svg)<br>
-![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/bookworm-xfce-toolbox-amd64.yml/badge.svg)<br>
-![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/bookworm-flux-minimum-amd64.yml/badge.svg)<br>
-![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/bookworm-flux-minimum-i386.yml/badge.svg)<br>
-![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/buster-xfce-standard-amd64.yml/badge.svg)<br>
-![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/buster-xfce-standard-i386.yml/badge.svg)<br>
-![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/bookworm-xfce-puzzle-amd64.yml/badge.svg)<br>
-![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/bookworm-xfce-ultra-amd64.yml/badge.svg)<br>
-![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/sid-xfce-standard-amd64.yml/badge.svg)<br>
-![Build Status](https://github.com/minios-linux/minios-nightly/actions/workflows/sid-xfce-standard-i386.yml/badge.svg)
-
-Welcome to the MiniOS Live Nightly Builds repository! Here, you can find the latest automated builds of MiniOS Live, created every night at **00:00 UTC**. These builds are designed to provide you with the freshest updates and features of MiniOS.
+Welcome to the nightly build repository for MiniOS Live!  Here you'll find the most recent automated builds of MiniOS Live, generated daily at **00:00 UTC**.  These builds give you immediate access to the latest MiniOS features and improvements.
 
 ## About Nightly Builds
 
-The nightly builds are automatically generated ISO images of MiniOS, incorporating the latest updates and changes. While they provide cutting-edge improvements, please note that nightly builds may occasionally include experimental features or be less stable than official releases.
+Nightly builds are automatically created ISO images of MiniOS, incorporating the very latest code changes.  While these builds provide access to cutting-edge advancements, they may occasionally be less stable than official releases and might include experimental features.
 
-### Features of Nightly Builds:
-- **Automated Builds**: Generated every night at **00:00 UTC**.
-- **Latest Updates**: Includes the most recent improvements and changes.
-- **Fast Access**: Ready to download and use immediately.
+### Nightly Build Advantages:
+- **Daily Generation**: Built automatically every day at **00:00 UTC**.
+- **Up-to-the-Minute Updates**: Includes the newest improvements and code changes.
+- **Instant Availability**: Download and test the latest build immediately.
+
+## Available Images
+
+| Image Name | Description | Build Status |
+|---|---|---|
+| `bookworm-xfce-standard-amd64` | Debian 12 (bookworm), XFCE desktop, Standard package variant, 64-bit MiniOS kernel image | ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/minios-linux/minios-nightly/bookworm-xfce-standard-amd64.yml?style=flat-square) |
+| `bookworm-xfce-standard-i386` | Debian 12 (bookworm), XFCE desktop, Standard package variant, 32-bit MiniOS kernel image | ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/minios-linux/minios-nightly/bookworm-xfce-standard-i386.yml?style=flat-square) |
+| `bookworm-xfce-toolbox-amd64` | Debian 12 (bookworm), XFCE desktop, Toolbox package variant, 64-bit MiniOS kernel image | ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/minios-linux/minios-nightly/bookworm-xfce-toolbox-amd64.yml?style=flat-square) |
+| `bookworm-flux-minimum-amd64` | Debian 12 (bookworm), Fluxbox desktop, Minimum package variant, 64-bit MiniOS kernel image | ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/minios-linux/minios-nightly/bookworm-flux-minimum-amd64.yml?style=flat-square) |
+| `bookworm-flux-minimum-i386` | Debian 12 (bookworm), Fluxbox desktop, Minimum package variant, 32-bit MiniOS kernel image | ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/minios-linux/minios-nightly/bookworm-flux-minimum-i386.yml?style=flat-square) |
+| `buster-xfce-standard-amd64` | Debian 10 (buster), XFCE desktop, Standard package variant, 64-bit MiniOS kernel image | ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/minios-linux/minios-nightly/buster-xfce-standard-amd64.yml?style=flat-square) |
+| `buster-xfce-standard-i386` | Debian 10 (buster), XFCE desktop, Standard package variant, 32-bit MiniOS kernel image | ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/minios-linux/minios-nightly/buster-xfce-standard-i386.yml?style=flat-square) |
+| `bookworm-xfce-puzzle-amd64` | Debian 12 (bookworm), XFCE desktop, Puzzle package variant, 64-bit MiniOS kernel image | ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/minios-linux/minios-nightly/bookworm-xfce-puzzle-amd64.yml?style=flat-square) |
+| `bookworm-xfce-ultra-amd64` | Debian 12 (bookworm), XFCE desktop, Ultra package variant, 64-bit MiniOS kernel image | ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/minios-linux/minios-nightly/bookworm-xfce-ultra-amd64.yml?style=flat-square) |
+| `sid-xfce-standard-amd64` | Debian Sid (unstable), XFCE desktop, Standard package variant, 64-bit **Debian kernel** image | ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/minios-linux/minios-nightly/sid-xfce-standard-amd64.yml?style=flat-square) |
+| `sid-xfce-standard-i386` | Debian Sid (unstable), XFCE desktop, Standard package variant, 32-bit **Debian kernel** image | ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/minios-linux/minios-nightly/sid-xfce-standard-i386.yml?style=flat-square) |
+
+
+## MiniOS Kernel Details
+
+The MiniOS kernel is similar to the standard Debian kernel but with key differences:  it does *not* include Secure Boot support, and it *does* include built-in support for AUFS and NTFS3.  The Debian Sid images use the standard Debian kernel.
 
 ## Download the Latest Nightly Build
 
 The most recent ISO can be downloaded directly from the repository or build pipeline. Check the [Releases](https://github.com/minios-linux/minios-nightly/releases) for the latest version.
 
-## Disclaimer
 
+## Disclaimer
 Nightly builds are intended for testing and early access to new features. These builds may contain bugs or experimental features. For stable and production-ready versions, refer to the official MiniOS releases.
+
 
 ## Feedback and Issues
 
