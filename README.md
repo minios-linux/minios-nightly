@@ -31,7 +31,7 @@ Nightly builds are automatically created ISO images of MiniOS, incorporating the
 
 ## MiniOS Kernel Details
 
-The MiniOS kernel is similar to the standard Debian kernel but with key differences:  it does *not* include Secure Boot support, and it *does* include built-in support for AUFS and NTFS3.  The Debian Sid images use the standard Debian kernel.
+The MiniOS kernel is similar to the standard Debian kernel but with key differences:  it does *not* include Secure Boot support, and it *does* include built-in support for AUFS and NTFS3, contains drivers for some Realtek and Broadcom wireless adapters in 64-bit version.  The Debian Sid images use the standard Debian kernel.
 
 ## Download the Latest Nightly Build
 
