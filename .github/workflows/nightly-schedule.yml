@@ -1,11 +1,32 @@
-name: Trigger Nightly Workflows
+name: Trigger Nightly Workflows (Schedule)
 
 on:
   schedule:
     - cron: "0 0 * * *"
 
 jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set Release Tag Name
+      id: set_tag
+      run: echo "tag_name=$(date +%Y%m%d)" >> $GITHUB_ENV
+
+    - name: Create Release with Date
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        repo=${{ github.repository }}
+        tag_name=${{ env.tag_name }}
+        if ! gh release view "$tag_name" --repo "$repo" >/dev/null 2>&1; then
+          gh release create "$tag_name" \
+            --title "Build $tag_name" \
+            --notes "Release notes for Build $tag_name" \
+            --repo "$repo"
+        fi
+
   trigger_workflows:
+    needs: release
     runs-on: ubuntu-latest
     steps:
       - name: Trigger bookworm-xfce-standard-amd64

@@ -1,4 +1,4 @@
-name: Nightly - bookworm-flux-minimum-i386
+name: bookworm-flux-minimum-i386
 
 on:
   workflow_dispatch:
@@ -61,32 +61,6 @@ jobs:
             --repo "$repo"
         fi
 
-    - name: Create or Update Latest Release
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        repo=${{ github.repository }}
-        today=$(date -u +%Y-%m-%d)
-        latest_date=$(gh release view "latest" --json createdAt --repo "$repo" --jq '.createdAt' 2>/dev/null | cut -d'T' -f1 || echo "")
-
-        echo "Today's date (UTC): $today"
-        echo "Latest release date (UTC): $latest_date"
-
-        if [ "$latest_date" = "$today" ]; then
-          echo "The latest release already exists and was created today. Skipping..."
-        else
-          if [ -n "$latest_date" ]; then
-            echo "The latest release exists but was created on a different day. Deleting..."
-            gh release delete "latest" --yes --repo "$repo"
-          fi
-
-          echo "Creating a new latest release..."
-          gh release create "latest" \
-            --title "Latest Build" \
-            --notes "This is the latest release." \
-            --repo "$repo"
-        fi
-
     - name: Upload Release Assets
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -95,12 +69,4 @@ jobs:
         tag_name=${{ env.tag_name }}
         for artifact in ./artifacts/*/*; do
           gh release upload "$tag_name" "$artifact" --repo "$repo" --clobber
-          gh release upload "latest" "$artifact" --repo "$repo" --clobber
         done
-
-    - name: Mark Latest as the Most Recent Release
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        repo=${{ github.repository }}
-        gh release edit "latest" --latest --repo "$repo"
