@@ -9,3 +9,4 @@
 - 2024-12-12 Updated LXQT appearance to match MiniOS 4 style.
 - 2024-12-14 Added virtres, novirtres, casper-rw options to kernel parameters
 - 2024-12-14 Changed principle of creating images for storing changes on POSIX incompatible file systems, now size of space in image is equal to free space on the drive.
+- 2024-12-14 Modified bootinst.sh to disallow running without root privileges.
