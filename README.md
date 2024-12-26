@@ -1,6 +1,6 @@
 # MiniOS Live Nightly Builds
 
-Welcome to the nightly build repository for MiniOS Live!  Here you'll find the most recent automated builds of MiniOS Live, generated daily at **00:00 UTC**.  These builds give you immediate access to the latest MiniOS features and improvements.
+Welcome to the weekly build repository for MiniOS Live! Here you'll find the most recent automated builds of MiniOS Live, generated every **Sunday at 00:00 UTC**.  These builds give you immediate access to the latest MiniOS features and improvements.
 
 ## About Nightly Builds
 
