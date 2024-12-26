@@ -34,3 +34,5 @@
 - 2024-12-22 Fixed sb2iso, now the iso image should generate correctly. Adapted the code for the new iso format.
 - 2024-12-25 Added utilities mke2fs e2fsck lsblk parted partprobe to initrd to work with disks and partitions.
 - 2024-12-25 Added ability to work with saves when writing iso image with dd, balenaEtcher and similar utilities. Now at the first startup a partition is automatically created to store permanent changes.
+- 2024-12-26 Removed some packages from Minimum for smaller size.
+- 2024-12-26 Added ability to build with locale C.
