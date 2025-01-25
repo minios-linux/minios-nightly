@@ -1,38 +1,51 @@
+# Changes
 
-### Changes
-- 2024-12-10 Fixed a bug that caused autologin to not work properly in Flux.
+## v4.1
+- 2024-12-10 Fixed a bug where autologin would not work properly in Flux.
 - 2024-12-11 Added telnet to Toolbox.
 - 2024-12-12 Updated package lists in Ultra to include all packages from Toolbox.
-## v5.0
-- 2024-12-12 Updated Ultra's appearance to match MiniOS 4 style.
+- 2024-12-12 Updated the appearance of Ultra to match the MiniOS 4 style.
 - 2024-12-12 Removed telegram-desktop from Ultra.
-- 2024-12-12 Updated LXQT appearance to match MiniOS 4 style.
-- 2024-12-14 Added virtres, novirtres, options to kernel parameters
-- 2024-12-14 Added ability to store data in raw casper-rw images (similar to Ubuntu) and casper-rw option in kernel parameters.
-- 2024-12-14 Changed principle of creating images for storing changes on POSIX incompatible file systems, now size of space in image is equal to free space on the drive.
-- 2024-12-14 Modified bootinst.sh to disallow running without root privileges.
-- 2024-12-14 Added MintStick to Standard for writing disk images and formatting flash drives.
-- 2024-12-14 Made changes to MintStick control to ensure compatibility with new Debian versions (trixie, sid).
-- 2024-12-16 Added QEMU, QEMU Utils and Virtual Machine Manager to Toolbox.
+- 2024-12-12 Updated the appearance of LXQT to match the MiniOS 4 style.
+- 2024-12-14 Added virtres, novirtres options to kernel parameters.
+- 2024-12-14 Added the ability to store data in raw images (similar to Ubuntu casper-rw).
+    - Added automatic determination of the size required for storing in raw and dynfilefs images.
+    - Implemented full Ventoy support for both storing data in images on the Ventoy partition and using an additional partition for storing changes.
+- 2024-12-14 Changed the principle of creating images for storing changes on POSIX-incompatible file systems; now, the space in the image is equal to the free space on the disk.
+- 2024-12-14 Modified bootinst.sh to prevent execution without root privileges.
+- 2024-12-14 Added the MintStick program to Standard for writing disk images and formatting flash drives.
+- 2024-12-14 Made changes to MintStick management to ensure compatibility with new versions of Debian (trixie, sid).
+- 2024-12-16 Added QEMU, QEMU Utils, and Virtual Machine Manager to Toolbox.
 - 2024-12-16 Added wallpapers for Ultra, Minimum, Home.
-- 2024-12-16 Rebuilt for QT5 and added to QDiskInfo repository.
+- 2024-12-16 Rebuilt under QT5 and added QDiskInfo to the repository.
 - 2024-12-16 Replaced HDSentinel with QDiskInfo in Toolbox.
 - 2024-12-16 Added memtest to Toolbox and Ultra.
-- 2024-12-16 Added PDFShuffler, QDiskInfo icons to elementary-minios, removed HDSentinel.
+- 2024-12-16 Added PDFShuffler and QDiskInfo icons to elementary-minios, removed HDSentinel.
 - 2024-12-16 Added dnsmasq-base to all editions.
 - 2024-12-16 Added VSCodium to Toolbox.
-- 2024-12-22 Moved from init to systemd: ntfs3 configuration, polkit configuration.
-- 2024-12-22 When building MiniOS now data cleanup is done at build_bootstrap step instead of build_live.
-- 2024-12-22 Improved iso image structure, now supports booting from EFI 32-bit.
-- 2024-12-22 Changed init boot logic. Copying of the system to RAM occurs before activation of persistent changes, which allows to use saved data after booting the system to RAM.
-- 2024-12-22 Added 3 new parameters to kernel parameters and changed logic of toram parameter:
-  - when the toram parameter is specified, changes are now not copied to RAM if the perchdir parameter is not specified in the kernel parameters;
-  - when the toram.trim parameter is specified, only data that is necessary to start the system is copied to RAM. Load/noload filters also work for them, excluded modules will not be copied to RAM;
-  - when specifying toram.trim.load= and toram.trim.noload= parameters you can specify which folders should be copied to RAM, otherwise both parameters work similarly to toram.trim;
-  - each of these new parameters is independent and only one of them can be specified.
-- 2024-12-22 Changed logic of scripts startup at boot. Now their launching does not depend on the SCRIPTS variable in minios.conf. If at least one script is in the scripts folder, it will be started at system startup.
-- 2024-12-22 Fixed sb2iso, now the iso image should generate correctly. Adapted the code for the new iso format.
-- 2024-12-25 Added utilities mke2fs e2fsck lsblk parted partprobe to initrd to work with disks and partitions.
-- 2024-12-25 Added ability to work with saves when writing iso image with dd, balenaEtcher and similar utilities. Now at the first startup a partition is automatically created to store permanent changes.
-- 2024-12-26 Removed some packages from Minimum for smaller size.
-- 2024-12-26 Added ability to build with locale C.
+- 2024-12-22 Moved ntfs3 configuration and polkit configuration from init to systemd.
+- 2024-12-22 When building MiniOS, data cleaning is now done in the build_bootstrap step, not build_live.
+- 2024-12-22 Improved the ISO image structure, now supports booting from EFI 32-bit.
+- 2024-12-22 Changed the init boot logic. Copying the system to RAM occurs before activating persistent changes, allowing the use of saved data after the system is loaded into RAM.
+- 2024-12-22 Added new parameters to the kernel parameters and changed the logic of the toram parameter:
+    - When the toram parameter is specified, changes are no longer copied to RAM if the perchdir parameter is not specified in the kernel parameters.
+    - When the toram or toram=trim parameter is specified, only the data needed to start the system is copied to RAM. Load/noload filters also work for them; excluded modules will not be copied to RAM.
+    - If toram=full is specified, all content of the minios folder, except for the modified folder, will be copied, unless the perchdir parameter is specified.
+    - Each of these new parameters is independent, and only one of them can be specified.
+- 2024-12-22 Changed the logic of running scripts during startup. Now, their execution does not depend on the SCRIPTS variable in minios.conf. If at least one script is in the scripts folder, it will be executed at system startup.
+- 2024-12-22 Fixed sb2iso; now the ISO image should be generated correctly. Adapted the code for the new ISO format.
+- 2024-12-25 Added mke2fs, e2fsck, lsblk, parted, and partprobe utilities to initrd for working with disks and partitions.
+- 2024-12-25 Added the ability to work with saves when writing an ISO image using dd, balenaEtcher, and similar utilities. Now, a partition for storing persistent changes is created automatically on the first launch.
+- 2024-12-26 Removed some packages from Minimum to reduce its size.
+- 2024-12-26 Added the ability to build with the C locale.
+- 2025-01-18 The default initrd compression algorithm now depends on the system compression algorithm.
+- 2025-01-18 Removed the -zstd suffix from image and module names since we are not using other compression algorithms.
+- 2025-01-18 Removed the xfce-apps module; its functions are now performed by xfce-desktop.
+- 2025-01-18 Graphical programs that are not part of any DE have been moved to the apps module.
+- 2025-01-18 The xorg module, previously containing Xorg and Blackbox, has been replaced by the gui-base module, which also contains basic GTK2, GTK3, QT5 libraries, icon themes, and other components necessary for all DEs.
+- 2025-01-18 Added the ntfs3-dkms package to the repository so that NTFS3 driver support is available in Debian kernels.
+- 2025-01-18 Added quirks from the new version of libinput to support new input devices.
+- 2025-01-18 Returned the Ultra edition.
+- 2025-01-18 Removed gsmartcontrol from Toolbox and Ultra and replaced it with qdiskinfo.
+- 2025-01-25 If the system does not support aufs, there will be no menu items responsible for connecting and disconnecting modules.
+- 2025-01-25 Removed the ttf-mscorefonts-installer package from Ultra. The usefulness of the package is doubtful compared to the time required for its successful installation in the build.
