@@ -1,0 +1,94 @@
+name: Trigger Workflows (Manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag (e.g., v4.1.0)'
+        required: true
+        default: 'latest'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    outputs:
+      tag_name: ${{ steps.set_tag.outputs.tag_name }}
+    steps:
+      - name: Set Release Tag Name
+        id: set_tag
+        run: echo "tag_name=${{ github.event.inputs.tag }}" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          repo=${{ github.repository }}
+          tag_name=${{ steps.set_tag.outputs.tag_name }}
+          gh release create "$tag_name" \
+            --title "Release $tag_name" \
+            --notes "Release notes for $tag_name" \
+            --repo "$repo" || true
+
+  trigger_workflows:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger bookworm-xfce-standard-amd64
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'bookworm-xfce-standard-amd64.yml',
+              ref: 'master',
+              inputs: {
+                tag: '${{ needs.release.outputs.tag_name }}'
+              }
+            })
+
+      - name: Trigger bookworm-xfce-standard-i386
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'bookworm-xfce-standard-i386.yml',
+              ref: 'master',
+              inputs: {
+                tag: '${{ needs.release.outputs.tag_name }}'
+              }
+            })
+
+      - name: Trigger bookworm-xfce-toolbox-amd64
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'bookworm-xfce-toolbox-amd64.yml',
+              ref: 'master',
+              inputs: {
+                tag: '${{ needs.release.outputs.tag_name }}'
+              }
+            })
+
+      - name: Trigger bookworm-xfce-ultra-amd64
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'bookworm-xfce-ultra-amd64.yml',
+              ref: 'master',
+              inputs: {
+                tag: '${{ needs.release.outputs.tag_name }}'
+              }
+            })
