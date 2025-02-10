@@ -28,7 +28,7 @@ The `Toolbox` and `Ultra` variants use the standard Debian kernel: it *does* inc
 
 ## Download the Latest Test Build
 
-The most recent ISO can be downloaded directly from the repository or build pipeline. Check the [Releases](https://github.com/minios-linux/minios-nightly/releases) for the latest version.
+The most recent ISO can be downloaded directly from the repository or build pipeline. Check the [Releases](https://github.com/minios-linux/minios-testing/releases) for the latest version.
 
 ## Disclaimer
 
