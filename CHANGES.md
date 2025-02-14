@@ -68,3 +68,4 @@
 - Fixed a bug in the builder in the `install_packages` function that caused packages from backports to not be installed when using the `-t` option.
 - Added deletion of `/var/cache/mandb` at system build to eliminate mandb cache error when installing packages.
 - Added `minios-kernelpack` utility to minios-tools to package kernel modules and create initrd.
+- Added a hotkey to open the start menu.
