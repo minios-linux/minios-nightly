@@ -65,3 +65,6 @@
 - Improved user and group file merging in `puzzle` mode.
 - MiniOS kernel updated to 6.1.128.
 - Added a check to sb2iso that will prevent the iso from being built if the system is loaded with `toram=trim`.
+- Fixed a bug in the builder in the `install_packages` function that caused packages from backports to not be installed when using the `-t` option.
+- Added deletion of `/var/cache/mandb` at system build to eliminate mandb cache error when installing packages.
+- Added `minios-kernelpack` utility to minios-tools to package kernel modules and create initrd.
